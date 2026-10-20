@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Салон красоты «Пудра» — запись онлайн</title>
+<meta name="description" content="Салон красоты «Пудра»: маникюр, педикюр, окрашивание, стрижки, брови и ресницы, уход за лицом. Запись в Telegram и WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --powder: #f6e3e1;
+    --powder-dark: #e9c6c3;
+    --rose: #c98b8b;
+    --cream: #fbf6f1;
+    --beige: #efe4d8;
+    --gold: #b8935a;
+    --gold-light: #d9b98a;
+    --text: #4a3a3a;
+    --text-soft: #7a6767;
+    --white: #ffffff;
+    --radius: 22px;
+    --shadow: 0 10px 30px rgba(150, 100, 90, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; line-height: 1.2; }
+  a { color: inherit; text-decoration: none; }
+  .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 80px 0; }
+
+  .section-label {
+    display: block; text-align: center;
+    color: var(--gold); font-size: 13px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .section-title { text-align: center; font-size: clamp(30px, 5vw, 42px); margin-bottom: 16px; }
+  .section-sub { text-align: center; color: var(--text-soft); max-width: 560px; margin: 0 auto 48px; }
+  .divider { width: 60px; height: 2px; background: var(--gold); margin: 0 auto 20px; }
+
+  /* Кнопки */
+  .btn {
+    display: inline-block; padding: 16px 34px; border-radius: 50px;
+    font-weight: 600; font-size: 16px; cursor: pointer; border: none;
+    transition: transform .2s, box-shadow .2s, background .2s;
+  }
+  .btn-main {
+    background: linear-gradient(135deg, var(--rose), var(--gold));
+    color: var(--white); box-shadow: 0 8px 22px rgba(201, 139, 139, .4);
+  }
+  .btn-main:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(201, 139, 139, .5); }
+
+  /* Шапка */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(251, 246, 241, .92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--beige);
+  }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--text); }
+  .logo span { color: var(--gold); font-style: italic; }
+  nav a { margin-left: 26px; font-size: 14px; font-weight: 500; color: var(--text-soft); transition: color .2s; }
+  nav a:hover { color: var(--rose); }
+  .header-btn { padding: 10px 22px; font-size: 14px; }
+
+  /* Первый экран */
+  .hero {
+    position: relative; overflow: hidden;
+    background: radial-gradient(circle at 85% 20%, var(--powder-dark) 0, transparent 40%),
+                radial-gradient(circle at 10% 90%, var(--beige) 0, transparent 45%),
+                var(--powder);
+    padding: 110px 0 120px; text-align: center;
+  }
+  .hero-tag {
+    display: inline-block; padding: 8px 20px; border-radius: 50px;
+    background: rgba(255, 255, 255, .6); color: var(--gold);
+    font-size: 13px; font-weight: 600; letter-spacing: 1px; margin-bottom: 26px;
+  }
+  .hero h1 { font-size: clamp(38px, 7vw, 68px); margin-bottom: 22px; }
+  .hero h1 em { color: var(--rose); }
+  .hero p { font-size: 18px; color: var(--text-soft); max-width: 560px; margin: 0 auto 38px; }
+  .hero-note { margin-top: 18px; font-size: 13px; color: var(--text-soft); }
+
+  /* Обо мне */
+  .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
+  .about-photo {
+    aspect-ratio: 4 / 5; border-radius: 200px 200px var(--radius) var(--radius);
+    background: linear-gradient(160deg, var(--powder-dark), var(--beige));
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    color: var(--text-soft); font-size: 14px; box-shadow: var(--shadow);
+    border: 6px solid var(--white);
+  }
+  .about-photo .icon { font-size: 54px; margin-bottom: 8px; }
+  .about-text .section-label, .about-text .section-title { text-align: left; }
+  .about-text .divider { margin-left: 0; }
+  .about-text p { color: var(--text-soft); margin-bottom: 16px; }
+  .stats { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+  .stat b { display: block; font-family: 'Playfair Display', serif; font-size: 36px; color: var(--gold); font-weight: 700; }
+  .stat span { font-size: 13px; color: var(--text-soft); }
+
+  /* Услуги */
+  .services { background: var(--white); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service {
+    background: var(--cream); border-radius: var(--radius); padding: 32px 28px;
+    border: 1px solid var(--beige); transition: transform .25s, box-shadow .25s;
+  }
+  .service:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+  .service .icon {
+    width: 58px; height: 58px; border-radius: 50%; background: var(--powder);
+    display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 18px;
+  }
+  .service h3 { font-size: 22px; margin-bottom: 8px; }
+  .service p { color: var(--text-soft); font-size: 14px; margin-bottom: 18px; }
+  .price { font-weight: 600; color: var(--gold); font-size: 17px; }
+
+  /* Преимущества */
+  .benefits { background: var(--powder); }
+  .benefits-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .benefit {
+    background: rgba(255, 255, 255, .7); border-radius: var(--radius);
+    padding: 30px 22px; text-align: center;
+  }
+  .benefit .icon { font-size: 34px; margin-bottom: 14px; }
+  .benefit h3 { font-size: 19px; margin-bottom: 8px; }
+  .benefit p { font-size: 14px; color: var(--text-soft); }
+
+  /* Контакты */
+  .contacts-box {
+    background: var(--white); border-radius: 32px; padding: 56px 40px;
+    text-align: center; box-shadow: var(--shadow); max-width: 760px; margin: 0 auto;
+  }
+  .contact-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin: 34px 0 30px; }
+  .contact-btn {
+    display: flex; align-items: center; gap: 10px; padding: 16px 30px;
+    border-radius: 50px; color: var(--white); font-weight: 600;
+    transition: transform .2s, opacity .2s;
+  }
+  .contact-btn:hover { transform: translateY(-3px); opacity: .92; }
+  .contact-btn svg { width: 22px; height: 22px; fill: currentColor; }
+  .tg { background: #2aabee; }
+  .wa { background: #25d366; }
+  .contact-info { color: var(--text-soft); font-size: 15px; }
+  .contact-info p { margin-bottom: 6px; }
+  .contact-info b { color: var(--text); }
+
+  footer { text-align: center; padding: 30px 20px; font-size: 13px; color: var(--text-soft); border-top: 1px solid var(--beige); }
+
+  /* Планшет */
+  @media (max-width: 900px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-grid { gap: 40px; }
+  }
+
+  /* Телефон */
+  @media (max-width: 640px) {
+    section { padding: 60px 0; }
+    nav { display: none; }
+    .logo { font-size: 22px; }
+    .hero { padding: 70px 0 80px; }
+    .hero p { font-size: 16px; }
+    .btn { width: 100%; max-width: 340px; }
+    .header-btn { width: auto; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-photo { max-width: 300px; margin: 0 auto; width: 100%; }
+    .about-text .section-label, .about-text .section-title { text-align: center; }
+    .about-text .divider { margin-left: auto; }
+    .about-text p { text-align: center; }
+    .stats { justify-content: center; }
+    .services-grid, .benefits-grid { grid-template-columns: 1fr; }
+    .contacts-box { padding: 40px 20px; border-radius: 24px; }
+    .contact-btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="#top" class="logo">Пудра<span>.</span></a>
+    <nav>
+      <a href="#about">Обо мне</a>
+      <a href="#services">Услуги</a>
+      <a href="#benefits">Преимущества</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a href="#contacts" class="btn btn-main header-btn">Записаться</a>
+  </div>
+</header>
+
+<!-- Первый экран -->
+<section class="hero" id="top">
+  <div class="container">
+    <span class="hero-tag">✨ САЛОН КРАСОТЫ «ПУДРА»</span>
+    <h1>Красота, в которой<br>вам <em>комфортно</em></h1>
+    <p>Маникюр, волосы, брови и уход за лицом в уютной атмосфере. Время, которое вы проводите только для себя.</p>
+    <a href="#contacts" class="btn btn-main">Записаться со скидкой 15%</a>
+    <div class="hero-note">Скидка на первый визит</div>
+  </div>
+</section>
+
+<!-- Обо мне -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-photo">
+      <div class="icon">🌸</div>
+      Здесь будет ваше фото
+    </div>
+    <div class="about-text">
+      <span class="section-label">Обо мне</span>
+      <h2 class="section-title">Привет! Я Анна, мастер и основатель салона</h2>
+      <div class="divider"></div>
+      <p>Больше 8 лет я помогаю женщинам чувствовать себя красивыми и уверенными. Я верю, что уход за собой — это не роскошь, а забота, которую заслуживает каждая.</p>
+      <p>В «Пудре» мы работаем только на проверенной косметике, следим за чистотой и никуда не торопимся. Вы приходите отдохнуть, а уходите с отличным настроением.</p>
+      <div class="stats">
+        <div class="stat"><b>8+</b><span>лет опыта</span></div>
+        <div class="stat"><b>2000+</b><span>довольных клиенток</span></div>
+        <div class="stat"><b>4.9</b><span>средняя оценка</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Услуги -->
+<section class="services" id="services">
+  <div class="container">
+    <span class="section-label">Услуги и цены</span>
+    <h2 class="section-title">Что мы делаем</h2>
+    <div class="divider"></div>
+    <p class="section-sub">Всё, чтобы вы выглядели ухоженно и чувствовали себя прекрасно</p>
+    <div class="services-grid">
+      <div class="service">
+        <div class="icon">💅</div>
+        <h3>Маникюр</h3>
+        <p>Аккуратный маникюр с покрытием гель-лаком, дизайн по желанию.</p>
+        <div class="price">от 1 800 ₽</div>
+      </div>
+      <div class="service">
+        <div class="icon">🦶</div>
+        <h3>Педикюр</h3>
+        <p>Бережная обработка стоп и покрытие, которое держится до 4 недель.</p>
+        <div class="price">от 2 300 ₽</div>
+      </div>
+      <div class="service">
+        <div class="icon">🎨</div>
+        <h3>Окрашивание</h3>
+        <p>Однотонное окрашивание, мелирование, сложные техники и тонирование.</p>
+        <div class="price">от 3 500 ₽</div>
+      </div>
+      <div class="service">
+        <div class="icon">✂️</div>
+        <h3>Стрижка и укладка</h3>
+        <p>Стрижка под ваш тип лица и укладка, которую легко повторить дома.</p>
+        <div class="price">от 1 500 ₽</div>
+      </div>
+      <div class="service">
+        <div class="icon">👁️</div>
+        <h3>Брови и ресницы</h3>
+        <p>Коррекция и окрашивание бровей, ламинирование, наращивание ресниц.</p>
+        <div class="price">от 1 200 ₽</div>
+      </div>
+      <div class="service">
+        <div class="icon">🌿</div>
+        <h3>Уход за лицом</h3>
+        <p>Чистка, увлажнение и массаж лица для свежей и сияющей кожи.</p>
+        <div class="price">от 2 800 ₽</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Преимущества -->
+<section class="benefits" id="benefits">
+  <div class="container">
+    <span class="section-label">Почему выбирают нас</span>
+    <h2 class="section-title">Наши преимущества</h2>
+    <div class="divider"></div>
+    <p class="section-sub">Мы заботимся о каждой детали, чтобы вам было спокойно и приятно</p>
+    <div class="benefits-grid">
+      <div class="benefit">
+        <div class="icon">🧼</div>
+        <h3>Стерильность</h3>
+        <p>Инструменты проходят полную обработку после каждой клиентки.</p>
+      </div>
+      <div class="benefit">
+        <div class="icon">💎</div>
+        <h3>Качественная косметика</h3>
+        <p>Работаем только на профессиональных брендах.</p>
+      </div>
+      <div class="benefit">
+        <div class="icon">⏰</div>
+        <h3>Без очереди</h3>
+        <p>Запись на удобное время, мы всегда начинаем вовремя.</p>
+      </div>
+      <div class="benefit">
+        <div class="icon">☕</div>
+        <h3>Уютная атмосфера</h3>
+        <p>Ароматный чай, приятная музыка и время только для вас.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Контакты -->
+<section id="contacts">
+  <div class="container">
+    <div class="contacts-box">
+      <span class="section-label">Контакты</span>
+      <h2 class="section-title">Запишитесь на удобное время</h2>
+      <div class="divider"></div>
+      <p class="section-sub" style="margin-bottom:0">Напишите нам в мессенджер, и мы подберём время. При первой записи скидка 15%.</p>
+      <div class="contact-buttons">
+        <a class="contact-btn tg" href="https://t.me/versan" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M9.78 15.27l-.4 5.6c.57 0 .82-.25 1.12-.54l2.68-2.56 5.56 4.07c1.02.57 1.74.27 2.02-.94l3.66-17.15c.33-1.51-.54-2.1-1.53-1.73L1.4 10.26c-1.47.57-1.45 1.39-.25 1.76l5.5 1.71L19.42 5.7c.6-.4 1.15-.18.7.22L9.78 15.27z"/></svg>
+          Telegram
+        </a>
+        <a class="contact-btn wa" href="https://wa.me/79851507209" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.34-.2-3.57.93.95-3.48-.22-.36a9.44 9.44 0 1117.99-5.03 9.45 9.45 0 01-10 9.45zm8.04-17.5A11.32 11.32 0 0012.04.67C5.77.67.66 5.77.66 12.04c0 2 .52 3.96 1.52 5.69L.57 23.6l6.01-1.58a11.36 11.36 0 005.45 1.39h.01c6.27 0 11.37-5.1 11.38-11.37a11.3 11.3 0 00-3.34-8.04z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+      <div class="contact-info">
+        <p>Telegram: <b>@versan</b></p>
+        <p>WhatsApp: <b>+7 985 150-72-09</b></p>
+        <p>Работаем ежедневно с 10:00 до 21:00</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Салон красоты «Пудра». С любовью к вашей красоте 🌸
+</footer>
+
+</body>
+</html>
